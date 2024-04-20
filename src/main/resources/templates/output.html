@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Output</title>
+</head>
+<body>
+    <h1 th:text="${fixedText}"></h1>
+    <h2 th:text="${outputText}"></h2>
+    <p th:if="${not #strings.isEmpty(input)}" th:text="'入力された値は「' + ${input} + '」です。'"></p>
+    <a th:href="@{/input(previous=${input})}">入力画面へ戻る</a>
+</body>
+</html>

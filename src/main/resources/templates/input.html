@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form</title>
+</head>
+<body>
+    <h1 th:text="${fixedText}"></h1>
+    <h2 th:text="${inputText}"></h2>
+    <p th:text="${fillText}"></p>
+    <p th:if="${not #strings.isEmpty(param.previous)}" th:text="'前回入力された値は「' + ${param.previous} + '」でした。'"></p>
+    <form action="/output" method="post">
+        <input type="text" name="input">
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>
