@@ -16,25 +16,26 @@ public class OutputController {
     @Value("${output.text}")
     private String outputText;
 
+    @Value("${return.text}")
+    private String returnText;
+
     @GetMapping("/output")
-    public String postOutputGet(@RequestParam(name = "input", required = false) String input, @RequestParam(name = "previous", required = false) String previous, Model model) {
-        if (previous != null && !previous.isEmpty()) {
-            model.addAttribute("previousMessage", "前回入力された値は「" + previous + "」でした。");
-        }
+    public String getOutput(@RequestParam(name = "input", required = false) String input, @RequestParam(name = "previous", required = false) String previous, Model model) {
+
         model.addAttribute("input", input);
         model.addAttribute("fixedText", fixedText);
         model.addAttribute("outputText", outputText);
+        model.addAttribute("returnText", returnText);
         return "output";
     }
 
     @PostMapping("/output")
-    public String postOutputPost(@RequestParam(name = "input", required = false) String input, @RequestParam(name = "previous", required = false) String previous, Model model) {
-        if (previous != null && !previous.isEmpty()) {
-            model.addAttribute("previousMessage", "入力された値は「" + previous + "」です。");
-        }
+    public String postOutput(@RequestParam(name = "input", required = false) String input, @RequestParam(name = "previous", required = false) String previous, Model model) {
+
         model.addAttribute("input", input);
         model.addAttribute("fixedText", fixedText);
         model.addAttribute("outputText", outputText);
+        model.addAttribute("returnText", returnText);
         return "output";
     }
 }

@@ -22,6 +22,7 @@ public class InputController {
         model.addAttribute("fixedText", fixedText);
         model.addAttribute("inputText", inputText);
         model.addAttribute("fillText", fillText);
+
         return "input";
     }
 
